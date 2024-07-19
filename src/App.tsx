@@ -5,7 +5,7 @@ export default function App() {
   const [proceed, setProceed] = useState(false);
   const [message, setMessage] = useState("");
 
-  const handleLanguageClick = (language) => {
+  const handleLanguageClick = (language: string) => {
     if (language === "English") {
       setMessage("First one to move is gay");
     } else if (language === "Spanish") {
