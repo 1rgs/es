@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
+import tik from "./assets/tik.mov";
 
 export default function App() {
   const [proceed, setProceed] = useState(false);
   const [message, setMessage] = useState("");
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleLanguageClick = (language: string) => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
     if (language === "English") {
       setMessage("First one to move is gay");
     } else if (language === "Spanish") {
@@ -15,6 +20,7 @@ export default function App() {
 
   return (
     <div className="flex flex-col items-start justify-center min-h-screen p-4 bg-[#F7F7F7]">
+      <audio ref={audioRef} autoPlay={false} src={tik}></audio>
       {proceed ? (
         <div className="flex flex-col items-center space-y-4 max-w-[850px] w-full">
           <div className="flex flex-col items-center space-y-4">
