@@ -3,19 +3,35 @@ import "./App.css";
 
 export default function App() {
   const [proceed, setProceed] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleLanguageClick = (language) => {
+    if (language === "English") {
+      setMessage("First one to move is gay");
+    } else if (language === "Spanish") {
+      setMessage("El primero en moverse es gay");
+    }
+  };
 
   return (
     <div className="flex flex-col items-start justify-center min-h-screen p-4 bg-[#F7F7F7]">
       {proceed ? (
         <div className="flex flex-col items-center space-y-4 max-w-[850px] w-full">
           <div className="flex flex-col items-center space-y-4">
-            <button className="bg-[#4285F4] text-white px-4 py-2 rounded-md">
+            <button
+              className="bg-[#4285F4] text-white px-4 py-2 rounded-md"
+              onClick={() => handleLanguageClick("English")}
+            >
               English
             </button>
-            <button className="bg-[#4285F4] text-white px-4 py-2 rounded-md">
+            <button
+              className="bg-[#4285F4] text-white px-4 py-2 rounded-md"
+              onClick={() => handleLanguageClick("Spanish")}
+            >
               Spanish
             </button>
           </div>
+          {message && <p className="text-center text-[#333333]">{message}</p>}
         </div>
       ) : (
         <div className="flex flex-col items-center space-y-4 max-w-[850px] w-full">
