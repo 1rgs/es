@@ -12,9 +12,9 @@ export default function App() {
       audioRef.current.play();
     }
     if (language === "English") {
-      setMessage("First one to move is gay");
+      setMessage("First one to move is");
     } else if (language === "Spanish") {
-      setMessage("El primero en moverse es gay");
+      setMessage("El primero en moverse es");
     }
   };
 
